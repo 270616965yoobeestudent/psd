@@ -15,11 +15,12 @@ def calcualte_rainfaill(input):
     )
     total = sum(input)
     average = np.mean(input)
-    zeroRain = np.array(np.where(input > 0)).size
-    moreThan5 = np.array([weekDays[i] for i in np.where(input > 5)[0]])
-    percentile = np.percentile(input, 75)
+    zeroRain = np.array(input == 0).sum()
+    moreThan5 = weekDays[input > 5]
+    percentile75 = np.percentile(input, 75)
+    abovePercentile75 = input[input > percentile75]
 
-    return total, average, zeroRain, moreThan5, percentile
+    return total, average, zeroRain, moreThan5, percentile75, abovePercentile75
 
 
 if __name__ == "__main__":
@@ -29,14 +30,16 @@ if __name__ == "__main__":
         average,
         zeroRain,
         moreThan5,
-        percentile,
+        percentile75,
+        abovePercentile75,
     ) = calcualte_rainfaill(rainfall)
     print("Numpy list:", rainfall)
     print("Total:", f"{total:.2f}")
     print("Average:", f"{average:.2f}")
     print("No rain:", zeroRain, "day(s)")
     print("More than 5mm:", moreThan5)
-    print("75th percentile:", percentile)
+    print("75th percentile:", percentile75)
+    print("Above 75th percentile:", abovePercentile75)
 
 
 # Sample rainfall = [0.0, 5.2, 3.1, 0.0, 12.4, 0.0, 7.5]
