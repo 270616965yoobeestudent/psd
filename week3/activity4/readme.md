@@ -1,14 +1,21 @@
-# 📚 Book Database Schema
-
-This project defines a simple relational database designed to manage books, their authors, and their categories. It supports many-to-many relationships between authors and books, and a one-to-many relationship between books and categories.
+# 📚 My college
 
 ## 🗂️ Database Diagram
 
-![Database Diagram](db_diagram.png)
+![Database Diagram](db_diagram_1.png)
 
-## 📄 Table Descriptions
+## 🔗 Relationships
 
-- **Authors**: Stores information about each author who may have written one or more books.  
-- **Books**: Contains details about each book, which can have multiple authors and belongs to one category.  
-- **Categories**: Defines the genre or type each book belongs to, with many books per category.  
-- **AuthorBook**: A join table that links authors and books to represent their many-to-many relationship.
+- **Students ↔ Courses**: Many-to-many — students can enroll in multiple courses, and courses can have many students.
+- **Students ↔ Subjects**: Many-to-many — students can study multiple subjects, and subjects can be taken by many students.
+- **Courses → Subjects**: Many-to-one — each course is linked to a single subject.
+- **Subjects → Lecturers**: Many-to-one — each subject is taught by a single lecturer.
+
+## 🧱 Tables and Descriptions
+
+- **Students**: Stores information about each student.
+- **Courses**: Represents academic courses that students can enroll in.
+- **Subjects**: Academic subjects linked to courses and lecturers.
+- **Lecturers**: Stores information about each lecturer.
+- **StudentCourse**: Join table representing the many-to-many relationship between students and courses.
+- **StudentSubject**: Join table representing the many-to-many relationship between students and subjects.
