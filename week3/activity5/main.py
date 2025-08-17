@@ -4,6 +4,7 @@ from student_manager import add_student, view_students, search_student, delete_s
 
 
 def menu():
+    print("0. Display All")
     print("\n==== User Manager ====")
     print("1. Add User")
     print("2. View All Users")
@@ -22,8 +23,15 @@ def main():
     seed_students()
     while True:
         menu()
-        choice = input("Select an option (1-9): ")
-        if choice == '1':
+        choice = input("Select an option (0-9): ")
+        if choice == '0':
+            users = view_users()
+            students = view_students()
+            for user in users:
+                print(user)
+            for student in students:
+                print(student)
+        elif choice == '1':
             name = input("Enter name: ")
             email = input("Enter email: ")
             add_user(name, email)
