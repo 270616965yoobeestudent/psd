@@ -9,19 +9,19 @@ def create_tables():
         cursor.executescript(
             """
             CREATE TABLE IF NOT EXISTS students (
-                id INTEGER PRIMARY KEY,
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL
             );
             CREATE TABLE IF NOT EXISTS courses (
-                id INTEGER PRIMARY KEY,
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL
             );
             CREATE TABLE IF NOT EXISTS lecturers (
-                id INTEGER PRIMARY KEY,
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL
             );
             CREATE TABLE IF NOT EXISTS subjects (
-                id INTEGER PRIMARY KEY,
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL,
                 course_id INTEGER,
                 FOREIGN KEY(course_id) REFERENCES courses(id)
