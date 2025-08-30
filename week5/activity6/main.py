@@ -34,9 +34,12 @@ def main():
     no_grade_student = NoGradeStudent("Bob", 20)
     print(no_grade_student.get_grade())
     print(no_grade_student.get_age())
-    
+
     # Name can directly access without using getter method
     print(no_grade_student.name)
+    
+    # _age should not access directly from object because it's protected
+    # print(no_grade_student._age) < but this statement will not throw an error
 
 
 if __name__ == "__main__":
