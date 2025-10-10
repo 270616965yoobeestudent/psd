@@ -1,4 +1,0 @@
-argparse
-peewee
-questionary
-json
