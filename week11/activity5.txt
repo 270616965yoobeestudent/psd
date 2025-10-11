@@ -1,0 +1,33 @@
+Project title: A Māori Fairytale Story Learning Online Game
+Group name: TBC
+Group members
+  1. Khemmachat Thongkhum
+
+Functional
+  - Players must be able to switch language between English and Māori. (Todo)
+  - Players must be able to play as a guest, There is no authentication required. (Todo)
+  - Players must be able to define their name before starting the game. (Todo)
+  - A game's room must be contain at least 2 players and at most 4 players. (Todo)
+  - A game's room must fill empty slot with robot when there are not enough players and players have been already waiting for 30 seconds. (Todo)
+  - A game must provide 2 different pictures randomly on the screen then let players find the different spots. (Todo)
+  - Players must earn a score when click on the correct spot and lost a score when click on the wrong spot area. (Todo)
+  - Players must see their current score on the screen while playing. (Todo)
+  - Players must see other players's current score on the screen while playing. (Todo)
+  - Players must see their summary score and their rank on the leaderboard after the game finish. (Todo)
+  - When a player leaves in the middle of game, they should be replace by robot. (Todo)
+  - CMS users must be authentication by username and password. (Todo)
+  - CMS users must be able to see all game contents. (Todo)
+  - CMS users must be able to search game contents by name. (Todo)
+  - CMS users must be able to upload game content (pictures) then mark the different spots. (Todo)
+  - CMS users must be able to logout. (Todo)
+
+Non-Functional
+  - Online match making system should not be take over than 30 seconds. (Todo)
+  - Game should not download initial resource over than 30 seconds. (Todo)
+  - Game server should be Reliability: uptime >= 99%. (Todo)
+  - Game should fully support Chrome and Safari browsers. (Todo)
+  - Game server should be able to scale automatically. (Todo)
+  - Unit test must coverage >= 80%. (Todo)
+  - CMS user password should be encrypt. (Todo)
+  - New Players should be able to play a game within 2 mins after they land into a web. (Todo)
+  - All requests and responses should be logs without any user's credentials. (Todo)
