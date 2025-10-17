@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}" />
+  </head>
+  <body>
+    <div>
+      <h1>BMI Calculator</h1>
+      <div>
+        Weight in kilograms: <input id="weight" type="number" id="weight" />
+      </div>
+      <div>
+        Height in meters: <input id="height" type="number" id="height" />
+      </div>
+      <div><button id="calculate">Calculate BMI</button></div>
+      <hr />
+      <h1>BMI Calculator Result</h1>
+      <div>Your BMI is: <span id="result-bmi">-</span></div>
+      <div>You are classified as: <span id="result-class">-</span></div>
+      <div><button id="calculate-again">Calculate again</button></div>
+    </div>
+    <script>
+      (function () {
+        const $ = (s) => document.getElementById(s);
+
+        const weightEl = $("weight");
+        const heightEl = $("height");
+        const calcBtn = $("calculate");
+        const againBtn = $("calculate-again");
+
+        const resultBmiEl = $("result-bmi");
+        const resultClassEl = $("result-class");
+
+        function classify(bmi) {
+          if (bmi < 18.5) return "Underweight";
+          if (bmi < 25) return "Normal Weight";
+          if (bmi < 30) return "Overweight";
+          return "Obesity";
+        }
+
+        function calculate() {
+          const w = parseFloat(weightEl.value);
+          const h = parseFloat(heightEl.value);
+
+          if (!isFinite(w) || w <= 0) {
+            alert("Please enter a valid weight in kilograms.");
+            weightEl.focus();
+            return;
+          }
+          if (!isFinite(h) || h <= 0) {
+            alert("Please enter a valid height in meters (e.g., 1.75).");
+            heightEl.focus();
+            return;
+          }
+
+          const bmi = w / (h * h);
+          const bmiStr = bmi.toFixed(1);
+
+          if (resultBmiEl) resultBmiEl.textContent = `${bmiStr}`;
+          if (resultClassEl) resultClassEl.textContent = `${classify(bmi)}`;
+        }
+
+        function resetForm() {
+          weightEl.value = "";
+          heightEl.value = "";
+          if (resultBmiEl) resultBmiEl.textContent = "Your BMI is: —";
+          if (resultClassEl)
+            resultClassEl.textContent = "You are classified as: —";
+          weightEl.focus();
+        }
+
+        calcBtn.addEventListener("click", calculate);
+        againBtn.addEventListener("click", resetForm);
+
+        [weightEl, heightEl].forEach((el) => {
+          el.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              calculate();
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
