@@ -1,14 +1,6 @@
 <html>
   <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
-    <script>
-      const input = document.getElementById("imgInput");
-      const img = document.getElementById("preview");
-      input.addEventListener("input", () => {
-        const url = input.value.trim();
-        img.src = url;
-      });
-    </script>
   </head>
   <body>
     <div>
@@ -25,5 +17,13 @@
         />
       </div>
     </div>
+    <script>
+      const input = document.getElementById("imgInput");
+      const img = document.getElementById("preview");
+      input.addEventListener("input", () => {
+        const url = input.value.trim();
+        img.src = url;
+      });
+    </script>
   </body>
 </html>
